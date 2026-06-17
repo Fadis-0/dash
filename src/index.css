@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased select-none;
+  }
+}
+
+/* Custom premium hover/focus animation effects */
+.button-neo {
+  @apply transition-transform active:translate-y-[2px] active:shadow-[0_2px_0_0];
+}
