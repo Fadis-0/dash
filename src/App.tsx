@@ -17,6 +17,7 @@ import {
   Award,
   CircleCheck,
   BrainCircuit,
+  MessageSquare,
   X
 } from "lucide-react";
 
@@ -246,7 +247,7 @@ export default function App() {
     setAuthLoading(true);
     setAuthError(null);
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
