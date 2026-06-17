@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutDashboard, Users, CheckSquare, BarChart3, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, CheckSquare, LogOut } from "lucide-react";
 import logoImage from "../splash-logo.jpeg";
 
 type Tab = "overview" | "patients" | "corrections" | "reports";
@@ -16,8 +16,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   activeTab,
   setActiveTab,
   onLogout,
-  orthophonistName,
-  clinicName
+  orthophonistName
 }) => {
   const menuItems = [
     { id: "overview" as Tab, label: "لوحة التحكم", icon: LayoutDashboard },

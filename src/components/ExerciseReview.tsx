@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Play, Pause, CheckCircle2, AlertCircle, MessageSquare, Award } from "lucide-react";
+import { Play, Pause, CheckCircle2, AlertCircle, Award } from "lucide-react";
 
 export interface ExerciseAttempt {
   id: string;
@@ -18,7 +18,7 @@ export interface ExerciseAttempt {
 
 interface ExerciseReviewProps {
   attempts: ExerciseAttempt[];
-  onReviewSubmit: (attemptId: string, status: "approved" | "rejected", notes: string) => void;
+  onReviewSubmit: (attemptId: string, status: "approved" | "rejected") => void;
 }
 
 export const ExerciseReview: React.FC<ExerciseReviewProps> = ({ attempts, onReviewSubmit }) => {
@@ -147,14 +147,14 @@ export const ExerciseReview: React.FC<ExerciseReviewProps> = ({ attempts, onRevi
 
                     <div className="flex gap-2 flex-col">
                       <button
-                        onClick={() => onReviewSubmit(attempt.id, "approved", currentNotes)}
+                        onClick={() => onReviewSubmit(attempt.id, "approved")}
                         className="w-full py-2.5 bg-tk-green border-2 border-tk-greenDark text-white font-bold text-sm rounded-xl button-neo shadow-neoGreen flex items-center justify-center gap-1.5 hover:translate-y-[-2px] transition-transform"
                       >
                         <CheckCircle2 size={16} />
                         <span>موافق ✓</span>
                       </button>
                       <button
-                        onClick={() => onReviewSubmit(attempt.id, "rejected", currentNotes)}
+                        onClick={() => onReviewSubmit(attempt.id, "rejected")}
                         className="w-full py-2.5 bg-tk-redLight border-2 border-tk-red text-tk-red font-bold text-sm rounded-xl button-neo hover:translate-y-[-2px] transition-transform flex items-center justify-center gap-1.5"
                       >
                         <AlertCircle size={16} />

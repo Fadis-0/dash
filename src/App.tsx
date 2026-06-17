@@ -13,12 +13,10 @@ import {
   ChevronRight,
   Sparkles,
   Search,
-  Plus,
   UserPlus,
   Award,
   CircleCheck,
   BrainCircuit,
-  MessageSquare,
   X
 } from "lucide-react";
 
@@ -333,7 +331,7 @@ export default function App() {
 
       if (modalMode === "link") {
         // Mode 1: Search parent by phone number
-        const { data: parentProfile, error: parentErr } = await supabase
+        const { data: parentProfile } = await supabase
           .from("profiles")
           .select("id")
           .eq("phone", parentPhoneQuery)
@@ -426,7 +424,7 @@ export default function App() {
   };
 
   // 7. Handle exercise reviews
-  const handleReviewSubmit = (attemptId: string, status: "approved" | "rejected", notes: string) => {
+  const handleReviewSubmit = (attemptId: string, status: "approved" | "rejected") => {
     setAttempts(current => current.filter(att => att.id !== attemptId));
     const targetAttempt = attempts.find(att => att.id === attemptId);
     if (targetAttempt && status === "approved") {
